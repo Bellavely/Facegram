@@ -21,6 +21,16 @@ public class FaceGram {
         faceGramUsers.put(name, new User(name));
         System.out.println(name + " created");
     }
+
+    public void editMessage(String userName,int messageId , String content) throws FaceGramError{
+        checkIfUserExist(userName);
+        faceGramUsers.get(userName).editMyMessage(messageId, content);
+    } 
+
+    public void deleteMessage(String userName , int messageId ) throws FaceGramError{
+        checkIfUserExist(userName);
+        faceGramUsers.get(userName).deleteMessage(messageId);
+    }
     
     public void checkIfUserExist ( String userName) throws FaceGramError{
         if (!faceGramUsers.containsKey(userName)){

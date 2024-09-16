@@ -37,7 +37,7 @@ public class Message {
     }
 
     public String toString(){
-        return messageId + " " +
+        return messageId + ". " +
                 userName + ": " + content 
                 + " [ " + likes + "likes] " + "[" + timeStamp +"] ";
     }

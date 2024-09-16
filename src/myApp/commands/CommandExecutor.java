@@ -13,6 +13,11 @@ public class CommandExecutor {
         parse = new CommandParser();
         commands.put("create_user", new CreateUser(app));
         commands.put("post_message", new PostMessage(app));
+        commands.put("edit_message", new EditMessage(app));
+        commands.put("like_message", null);
+        commands.put("delete_message", null);
+        commands.put("follow", null);
+        commands.put("unfollow", null);
         commands.put("my_messages", new PostMyMessages(app));
     }
 

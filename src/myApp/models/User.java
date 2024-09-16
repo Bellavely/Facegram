@@ -46,6 +46,10 @@ public class User {
         }
     }
 
+    public void deleteMessage(int messageId){
+        myMessages.remove(messageId);
+    }
+
     public ArrayList<Message> getMessages( ){
         ArrayList<Message> messages = new ArrayList<>(myMessages.values());
         return messages;

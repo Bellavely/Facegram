@@ -27,6 +27,12 @@ public class FaceGram {
         faceGramUsers.get(userName).editMyMessage(messageId, content);
     } 
 
+    public void unFollowUser(String userNamed, String followUser) throws FaceGramError{
+        checkIfUserExist(userNamed);
+        checkIfUserExist(followUser);
+        faceGramUsers.get(userNamed).unfollowUser(userNamed);
+    }
+
     public void deleteMessage(String userName , int messageId ) throws FaceGramError{
         checkIfUserExist(userName);
         faceGramUsers.get(userName).deleteMessage(messageId);

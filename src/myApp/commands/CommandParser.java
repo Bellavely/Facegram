@@ -1,14 +1,9 @@
 package myApp.commands;
 
-import java.util.HashMap;
-
-import myApp.FaceGram;
-
 /**
  * CommandParser
  */
 public class CommandParser {
-    private HashMap<String,Command> commands;
     private String [] commandValues;
 
     public void parse (String command){

@@ -30,6 +30,7 @@ public class User {
         following.put(name,user);
     }
 
+
     public void unfollowUser (String name){
         following.remove(name);
     }

@@ -29,6 +29,7 @@ public class RunFaceGram {
             String command = in.next();
             if (command.equals("exit")){
                 flag = false;
+                System.out.println("Exiting ..");
             }
             else {
                 execute.executeCommand(command);

@@ -38,6 +38,13 @@ public class FaceGram {
         }
     }
 
+    public void addFollower(String userName , String user) throws FaceGramError{
+        checkIfUserExist(userName);
+        checkIfUserExist(user);
+        User follow = faceGramUsers.get(user);
+        faceGramUsers.get(userName).followUser(follow, user);
+    }
+
     public void postMessage (String user, String content) throws FaceGramError{
         checkIfUserExist(user);
         faceGramUsers.get(user).postMessage(content, numMessages);

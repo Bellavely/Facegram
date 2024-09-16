@@ -14,7 +14,8 @@ public class CommandExecutor {
         commands.put("create_user", new CreateUser(app));
         commands.put("post_message", new PostMessage(app));
         commands.put("edit_message", new EditMessage(app));
-        commands.put("like_message", null);
+        commands.put("view_feed", new ViewFeedCommand(app));
+        commands.put("like_message", new LikeCommand(app));
         commands.put("delete_message", new DeleteMessage(app));
         commands.put("follow", new FollowCommand(app));
         commands.put("unfollow", new UnfollowCommand(app));

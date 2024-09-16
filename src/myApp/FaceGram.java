@@ -1,6 +1,8 @@
 package myApp;
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import myApp.models.Message;
 import myApp.models.User;
 
 public class FaceGram {
@@ -60,6 +62,11 @@ public class FaceGram {
     public void myMessages(String user) throws FaceGramError{
         checkIfUserExist(user);
         faceGramUsers.get(user).printAllMyMessages(); 
+    }
+
+    public ArrayList<Message> getUserFeed(String userName) throws FaceGramError{
+        checkIfUserExist(userName);
+        return faceGramUsers.get(userName).getFeed();
     }
 
 }

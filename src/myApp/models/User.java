@@ -6,7 +6,7 @@ public class User {
     private String name; 
     //used hashMap for a faster access for the users messages and following
     private HashMap<Integer,Message> myMessages;
-    private HashMap<String , User> following; 
+    private HashMap<String , User> following;
 
     public User(String name){
         this.name = name;
@@ -61,5 +61,18 @@ public class User {
         for (int id : myMessages.keySet()){
             System.out.println(myMessages.get(id).toString());
         }
+    }
+
+    public ArrayList<Message> getFeed(){
+        ArrayList<Message> feed = new ArrayList<>();
+
+        /* Think about a design pattern that will help me */
+        for(User user : following.values()){
+            for (Message message : user.getMessages()){
+                feed.add(message);
+            }
+        }
+
+        return feed;
     }
 }

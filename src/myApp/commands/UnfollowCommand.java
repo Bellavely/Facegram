@@ -14,7 +14,8 @@ public class UnfollowCommand implements Command{
     public void execute(String params) {
         String [] vals = params.split(" ",2);
         try {
-            app.unFollowUser(vals[0], vals[1]);
+            String followedUser = vals[1].replace(" ", ""); 
+            app.unFollowUser(vals[0], followedUser);
         } catch (FaceGramError e) {
             System.out.println(e.getMessage());
         }

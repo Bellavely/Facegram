@@ -1,5 +1,5 @@
 package myApp.models;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,21 +7,21 @@ import java.util.Set;
 public class Message {
     private String userName;
     private int messageId; 
-    private String content; 
-    private Date timeStamp;
+    private String contenx; 
+    private LocalDateTime timeStamp;
     private int likes;
     private Set<String> likedBy; 
     
     public Message(String userName , String contex , int messageId){
         this.userName = userName;
         this.messageId = messageId;
-        this.content = contex;
-        timeStamp = new Date();
+        this.contenx = contex;
+        timeStamp = LocalDateTime.now();
         likedBy = new HashSet<>();
     }
 
     public String getContent(){
-        return content;
+        return contenx;
     }
 
     public int getId() {
@@ -32,13 +32,13 @@ public class Message {
         return likes;
     }
 
-    public Date getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
     public void setContent(String contex) {
-        this.content = contex;
-        timeStamp = new Date();
+        this.contenx = contex;
+        timeStamp = LocalDateTime.now();
     }
 
     public void addLike(String userName) {
@@ -53,7 +53,7 @@ public class Message {
 
     public String toString(){
         return messageId + ". " +
-                userName + ": " + content 
+                userName + ": " + contenx
                 + " [ " + likes + " likes] " + "[" + timeStamp +"] ";
     }
 

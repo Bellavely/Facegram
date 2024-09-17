@@ -1,6 +1,10 @@
 package myApp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import myApp.models.Message;
 import myApp.models.User;
@@ -73,9 +77,26 @@ public class FaceGram {
         return faceGramUsers.get(userName).getFeed();
     }
 
-    public void likeMessage (int messageId) {
+    public void likeMessage (String username , int messageId) {
         Message likedMsg = messages.get(messageId);
-        likedMsg.addLike();
+        likedMsg.addLike(username);
+    }
+
+    public List<Message> getTreandingMessages(){
+        List<Message> trending = messages.values().stream()
+                                .filter(message -> message.getLikes() >= 1 )
+                                .collect(Collectors.toList());
+        //sort by num of likes
+        trending.sort(new Comparator<Message>() {
+            @Override
+            public int compare(Message o1, Message o2) {
+                return o1.getLikes() - o2.getLikes();
+            }
+        });
+
+        LocalDateTime oneHourAgo = LocalDateTime.now().minusHours(1);
+        return trending.stream().filter(message -> message.getTimeStamp().isAfter(oneHourAgo))
+        .collect(Collectors.toList());
     }
 
 }

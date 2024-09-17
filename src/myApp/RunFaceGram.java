@@ -1,6 +1,4 @@
 package myApp;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import myApp.commands.CommandExecutor;
@@ -24,7 +22,7 @@ public class RunFaceGram {
         System.out.println("follow <user_id> <follow_user_id›: User starts following another user.");
         System.out.println("unfollow ‹user_id> «unfollow_user_id>: User stops following another user.");
         System.out.println("view_feed <user_id>: Displays the feed for a user.");
-        /*System.out.println("trending_messages: Displays trending messages based on likes within the last hour.");*/
+        System.out.println("trending_messages: Displays trending messages based on likes within the last hour.");
         System.out.println("exit : Exits the application");
 
         while (flag) {
@@ -37,5 +35,7 @@ public class RunFaceGram {
                 execute.executeCommand(command);
             }
         }
+
+        in.close();
     }
 }

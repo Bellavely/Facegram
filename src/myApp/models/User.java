@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class User {
-    private String name; 
+    private String name;
     //used hashMap for a faster access for the users messages and following
     private HashMap<Integer,Message> myMessages;
     private HashMap<String , User> following;
@@ -31,7 +31,9 @@ public class User {
 
 
     public void unfollowUser (String name){
+        System.out.println(name);
         following.remove(name);
+        System.out.println(following);
     }
     
     /*  messageId - unique id message

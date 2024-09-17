@@ -44,7 +44,8 @@ The system allows users to share messages, follow and unfollow other users, and 
 9. **Trending Messages**:
    - Based on the number of likes received within the last hour, the system identifies and displays trending messages.
 
-**An example for running the program:**
+## An example for running the program:
+
 < create_user Alice
 < create_user Bob
 < post_message Alice "Hello World!"
@@ -54,8 +55,10 @@ The system allows users to share messages, follow and unfollow other users, and 
 Feed for Bob:
 .1 Alice: Hello World! [1 like] [timestamp] [message_id]
 
+## Requirements
+
 - The system uses core Java features without external libraries
-- The design patterns that i used in my project are :
+- Use deisign patterns: i used in my project:
   *Command - for creating the command inputs inn my project
   *Factory - for deciding which command to use.
-- Data structures like **HashMaps** are used for efficient retrieval of users and messages.
+- Use data structures : i used **HashMaps** for efficient retrieval of users and messages.

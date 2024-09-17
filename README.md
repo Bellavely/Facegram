@@ -46,19 +46,19 @@ The system allows users to share messages, follow and unfollow other users, and 
 
 ## An example for running the program:
 
-< create_user Alice
-< create_user Bob
-< post_message Alice "Hello World!"
-< like_message Alice 1
-< follow Bob Alice
-< view_feed Bob
-Feed for Bob:
+-< create_user Alice
+-< create_user Bob
+-< post_message Alice "Hello World!"
+-< like_message Alice 1
+-< follow Bob Alice
+-< view_feed Bob
+-Feed for Bob:
 .1 Alice: Hello World! [1 like] [timestamp] [message_id]
 
 ## Requirements
 
 - The system uses core Java features without external libraries
 - Use deisign patterns: i used in my project:
-  *Command - for creating the command inputs inn my project
-  *Factory - for deciding which command to use.
+  - Command - for creating the command inputs inn my project
+  - Factory - for deciding which command to use.
 - Use data structures : i used **HashMaps** for efficient retrieval of users and messages.

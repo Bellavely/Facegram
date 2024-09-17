@@ -1,7 +1,6 @@
 package myApp.commands;
 
 import myApp.FaceGram;
-import myApp.FaceGramError;
 
 public class CreateUser implements Command {
     private FaceGram app; 
@@ -12,11 +11,7 @@ public class CreateUser implements Command {
 
     @Override
     public void execute(String command) {
-        try {
-            app.createUser(command);
-        } catch (NumberFormatException | FaceGramError e) {
-            System.out.println(e.getMessage());
-        }
+        app.createUser(command); 
     }
 
     

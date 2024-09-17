@@ -8,7 +8,8 @@ public class RunFaceGram {
         boolean flag = true; 
         Scanner in = new Scanner(System.in);
         in.useDelimiter("\\n");
-        FaceGram faceTimeApp = new FaceGram();
+        Monitor monitor = new FMonitor();
+        FaceGram faceTimeApp = new FaceGram(monitor);
         CommandExecutor execute = new CommandExecutor(faceTimeApp);
 
         System.out.println("Hi :)"); 

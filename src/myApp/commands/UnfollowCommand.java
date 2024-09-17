@@ -1,7 +1,6 @@
 package myApp.commands;
 
 import myApp.FaceGram;
-import myApp.FaceGramError;
 
 public class UnfollowCommand implements Command{
     private FaceGram app;
@@ -13,12 +12,8 @@ public class UnfollowCommand implements Command{
     @Override
     public void execute(String params) {
         String [] vals = params.split(" ",2);
-        try {
-            String followedUser = vals[1].replace(" ", ""); 
-            app.unFollowUser(vals[0], followedUser);
-        } catch (FaceGramError e) {
-            System.out.println(e.getMessage());
-        }
+        String followedUser = vals[1].replace(" ", ""); 
+        app.unFollowUser(vals[0], followedUser);
     }
     
 }

@@ -6,7 +6,6 @@ import java.util.Comparator;
 
 import myApp.models.*;
 import myApp.FaceGram;
-import myApp.FaceGramError;
 
 public class ViewFeedCommand implements Command {
     private FaceGram faceGram;
@@ -17,16 +16,12 @@ public class ViewFeedCommand implements Command {
 
     @Override
     public void execute(String params) {
-      try {
-            ArrayList<Message> feed = faceGram.getUserFeed(params);
-            Collections.sort(feed,new TimestampComparator());
+        ArrayList<Message> feed = faceGram.getUserFeed(params);
+        Collections.sort(feed,new TimestampComparator());
             
-            for(Message message : feed){
-                System.out.println(message);
-            }   
-        } catch (FaceGramError e) {
-            System.out.println(e.getMessage());
-        }    
+        for(Message message : feed){
+            System.out.println(message);
+        }      
     }
 
     private class TimestampComparator implements Comparator<Message>{

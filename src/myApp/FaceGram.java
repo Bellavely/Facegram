@@ -10,59 +10,62 @@ import myApp.models.Message;
 import myApp.models.User;
 
 
-/*TODO: add monitor for your project and add observer*/
+/*TODO: add observer for feed */
 
 public class FaceGram {
     private static int numMessages; 
     private HashMap<String,User> faceGramUsers;
     private HashMap<Integer,Message> messages;
+    private Monitor monitor;
 
-    public FaceGram(){
+    public FaceGram(Monitor monitor){
         faceGramUsers = new HashMap<>();
         messages = new HashMap<>();
+        this.monitor = monitor;
     }
 
-    public void createUser(String name) throws FaceGramError{
+    public void createUser(String name) {
         if (name.equals(" ") || name.equals("")){
-            throw new FaceGramError("please enter a name");
+            monitor.display("please enter a name");
         }
-        if (faceGramUsers.containsKey(name)){
-            throw new FaceGramError("User Already Exists");
+        else if (faceGramUsers.containsKey(name)){
+            monitor.display("User Already Exists");
+        }else{
+            faceGramUsers.put(name, new User(name));
+            monitor.display(name + " created");
         }
-        faceGramUsers.put(name, new User(name));
-        System.out.println(name + " created");
     }
 
-    public void editMessage(String userName,int messageId , String content) throws FaceGramError{
+    public void editMessage(String userName,int messageId , String content) {
         checkIfUserExist(userName);
         faceGramUsers.get(userName).editMyMessage(messageId, content);
     } 
 
-    public void unFollowUser(String userNamed, String followUser) throws FaceGramError{
+    public void unFollowUser(String userNamed, String followUser) {
         checkIfUserExist(userNamed);
         checkIfUserExist(followUser);
         faceGramUsers.get(userNamed).unfollowUser(followUser);
     }
 
-    public void deleteMessage(String userName , int messageId ) throws FaceGramError{
+    public void deleteMessage(String userName , int messageId ) {
         checkIfUserExist(userName);
         faceGramUsers.get(userName).deleteMessage(messageId);
     }
     
-    public void checkIfUserExist ( String userName) throws FaceGramError{
+    public void checkIfUserExist ( String userName) {
         if (!faceGramUsers.containsKey(userName)){
-            throw new FaceGramError(userName + " don't exist!");
+           monitor.display(userName + " don't exist!");
         }
     }
 
-    public void addFollower(String userName , String user) throws FaceGramError{
+    public void addFollower(String userName , String user) {
         checkIfUserExist(userName);
         checkIfUserExist(user);
         User follow = faceGramUsers.get(user);
         faceGramUsers.get(userName).followUser(follow, user);
     }
 
-    public void postMessage (String user, String content) throws FaceGramError{
+    public void postMessage (String user, String content) {
         checkIfUserExist(user);
         Message newMessage = new Message( user , content , numMessages);
         messages.put(numMessages, newMessage);
@@ -70,12 +73,12 @@ public class FaceGram {
         numMessages++;
     }
 
-    public void myMessages(String user) throws FaceGramError{
+    public void myMessages(String user) {
         checkIfUserExist(user);
         faceGramUsers.get(user).printAllMyMessages(); 
     }
 
-    public ArrayList<Message> getUserFeed(String userName) throws FaceGramError{
+    public ArrayList<Message> getUserFeed(String userName) {
         checkIfUserExist(userName);
         return faceGramUsers.get(userName).getFeed();
     }

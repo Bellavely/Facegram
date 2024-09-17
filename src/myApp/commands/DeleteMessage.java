@@ -1,7 +1,6 @@
 package myApp.commands;
 
 import myApp.FaceGram;
-import myApp.FaceGramError;
 
 /**
  * DeleteMessage
@@ -18,7 +17,7 @@ public class DeleteMessage implements Command{
         try {
             String value = vals[1].replace(" ", ""); 
             app.deleteMessage(vals[0], Integer.parseInt(value));
-        } catch (NumberFormatException |FaceGramError e) {
+        } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
         }
     } 

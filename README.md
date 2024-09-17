@@ -1,5 +1,5 @@
 **FaceGram**
-This Project was an assiment that i got in an intreview.
+This Project was an assignment that I got in an intreview.
 The system allows users to share messages, follow and unfollow other users, and view a personalized feed showing messages from users they follow.
 
 ## Core Features

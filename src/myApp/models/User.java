@@ -18,9 +18,8 @@ public class User {
         messageId - unique id for my message
         post a new message 
     */
-    public void postMessage(String content , int messageId) {
-        Message newMessage = new Message( name , content , messageId);
-        myMessages.put(newMessage.getId(), newMessage);
+    public void postMessage(Message mesg) {
+        myMessages.put(mesg.getId(), mesg);
     }
 
     /* name - unique user name 

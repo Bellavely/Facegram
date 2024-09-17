@@ -15,7 +15,7 @@ public class EditMessage implements Command {
         String[] vals = params.split(" ",3);
         try {
             app.editMessage(vals[0] ,Integer.parseInt(vals[1]), vals[2]);
-        } catch (FaceGramError e) {
+        } catch (NumberFormatException | FaceGramError e) {
            System.out.println(e.getMessage());
         }
     } 

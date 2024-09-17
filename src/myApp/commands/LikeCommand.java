@@ -2,6 +2,8 @@ package myApp.commands;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 import myApp.FaceGram;
 import myApp.FaceGramError;
@@ -18,16 +20,11 @@ public class LikeCommand implements Command {
     public void execute(String params) {
         try {
             ArrayList<Message> feed = faceGram.getUserFeed(params);
-            for(Message message : feed){
-                System.out.println(message);
-            }
-            
             
         } catch (FaceGramError e) {
-            System.out.println(e.getMessage());
-        }
+            System.out.println(e.getMessage());  
+      }
     }
 
-    
 
 }

@@ -7,14 +7,16 @@ import myApp.models.User;
 
 public class FaceGram {
     private static int numMessages; 
-    private HashMap<String,User> faceGramUsers; 
+    private HashMap<String,User> faceGramUsers;
+    private HashMap<Integer,Message> messages;
 
     public FaceGram(){
         faceGramUsers = new HashMap<>();
+        messages = new HashMap<>();
     }
 
     public void createUser(String name) throws FaceGramError{
-        if (name.equals("")){
+        if (name.equals(" ") || name.equals("")){
             throw new FaceGramError("please enter a name");
         }
         if (faceGramUsers.containsKey(name)){
@@ -55,7 +57,9 @@ public class FaceGram {
 
     public void postMessage (String user, String content) throws FaceGramError{
         checkIfUserExist(user);
-        faceGramUsers.get(user).postMessage(content, numMessages);
+        Message newMessage = new Message( user , content , numMessages);
+        messages.put(numMessages, newMessage);
+        faceGramUsers.get(user).postMessage(newMessage);
         numMessages++;
     }
 
@@ -67,6 +71,11 @@ public class FaceGram {
     public ArrayList<Message> getUserFeed(String userName) throws FaceGramError{
         checkIfUserExist(userName);
         return faceGramUsers.get(userName).getFeed();
+    }
+
+    public void likeMessage (int messageId) {
+        Message likedMsg = messages.get(messageId);
+        likedMsg.addLike();
     }
 
 }

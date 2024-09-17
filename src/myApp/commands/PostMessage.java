@@ -14,7 +14,11 @@ public class PostMessage implements Command {
     public void execute(String params) {
         String[] vals = params.split(" ",2);
         try {
-            app.postMessage(vals[0], vals[1]);
+            if (vals.length > 1){
+                app.postMessage(vals[0], vals[1]);
+            }else {
+                app.postMessage(vals[0], "");
+            }
         } catch (FaceGramError e) {
             System.out.println(e.getMessage());
         }

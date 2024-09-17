@@ -15,6 +15,9 @@ public class CommandParser {
     }
 
     public String getVals(){
-        return commandValues[1];
+        if (commandValues.length > 1){
+            return commandValues[1];
+        }
+        return " ";
     }
 }

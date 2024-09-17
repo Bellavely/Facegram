@@ -16,7 +16,7 @@ public class DeleteMessage implements Command{
     public void execute(String params) {
         String [] vals = params.split(" ",2);
         try {
-            app.deleteMessage(vals[0], Integer.parseInt(vals[0]));
+            app.deleteMessage(vals[0], Integer.parseInt(vals[1]));
         } catch (NumberFormatException |FaceGramError e) {
             System.out.println(e.getMessage());
         }

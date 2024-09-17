@@ -14,7 +14,7 @@ public class CreateUser implements Command {
     public void execute(String command) {
         try {
             app.createUser(command);
-        } catch (FaceGramError e) {
+        } catch (NumberFormatException | FaceGramError e) {
             System.out.println(e.getMessage());
         }
     }

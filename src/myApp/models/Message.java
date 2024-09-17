@@ -27,6 +27,10 @@ public class Message {
         return likes;
     }
 
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
     public void setContent(String contex) {
         this.content = contex;
         timeStamp = new Date();

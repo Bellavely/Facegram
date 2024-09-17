@@ -31,9 +31,7 @@ public class User {
 
 
     public void unfollowUser (String name){
-        System.out.println(name);
         following.remove(name);
-        System.out.println(following);
     }
     
     /*  messageId - unique id message

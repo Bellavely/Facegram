@@ -32,7 +32,7 @@ public class ViewFeedCommand implements Command {
     private class TimestampComparator implements Comparator<Message>{
         @Override
         public int compare(Message m1, Message m2) {
-            return m1.getTimeStamp().compareTo(m2.getTimeStamp());
+            return m2.getTimeStamp().compareTo(m1.getTimeStamp());
         }  
     }
 }

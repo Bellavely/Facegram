@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 import myApp.models.Message;
 import myApp.models.User;
 
+
+/*TODO: add monitor for your project and add observer*/
+
 public class FaceGram {
     private static int numMessages; 
     private HashMap<String,User> faceGramUsers;
@@ -38,7 +41,7 @@ public class FaceGram {
     public void unFollowUser(String userNamed, String followUser) throws FaceGramError{
         checkIfUserExist(userNamed);
         checkIfUserExist(followUser);
-        faceGramUsers.get(userNamed).unfollowUser(userNamed);
+        faceGramUsers.get(userNamed).unfollowUser(followUser);
     }
 
     public void deleteMessage(String userName , int messageId ) throws FaceGramError{
@@ -90,7 +93,7 @@ public class FaceGram {
         trending.sort(new Comparator<Message>() {
             @Override
             public int compare(Message o1, Message o2) {
-                return o1.getLikes() - o2.getLikes();
+                return o2.getLikes() - o1.getLikes();
             }
         });
 

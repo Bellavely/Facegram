@@ -1,7 +1,6 @@
 package myApp.commands;
 
 import myApp.FaceGram;
-import myApp.FaceGramError;
 
 public class EditMessage implements Command {
     private FaceGram app;
@@ -16,7 +15,7 @@ public class EditMessage implements Command {
         try {
             String value = vals[1].replace(" ", ""); 
             app.editMessage(vals[0] ,Integer.parseInt(value), vals[2]);
-        } catch (NumberFormatException | FaceGramError e) {
+        } catch (NumberFormatException e) {
            System.out.println(e.getMessage());
         }
     } 
